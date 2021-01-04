@@ -55,7 +55,10 @@ class TestBatchKit(unittest.TestCase):
         self.assertRegex(self.bk.get_name(), r'.+batchkit\.py$')
 
     def test09_get_version(self):
-        self.assertRegex(self.bk.get_ver(), r'^v[0-9]\.[0-9]+(-[0-9]+-\w{8,})?$')
+        self.assertRegex(self.bk.get_ver()[0], r'^v[0-9]\.[0-9]+(-[0-9]+-\w{8,})?$')
+        
+        self.assertIsInstance(self.bk.get_ver()[1], int)
+        self.assertGreaterEqual(self.bk.get_ver()[1], 1000)
 
 
 if __name__ == '__main__':

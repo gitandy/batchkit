@@ -82,5 +82,7 @@ class BatchKit:
 
     @staticmethod
     def get_ver():
-        """:return The version of Batch-Kit"""
-        return __version__
+        """:return The version of Batch-Kit as a tuple of version string and int representation"""
+        ver_list = __version__[1:].split('.')
+        ver_int = int(ver_list[0]) * 10**6 + int(ver_list[1]) * 10**3
+        return (__version__, ver_int)
